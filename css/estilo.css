@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+a {
+  text-decoration: none; }
+
+.container {
+  margin: 0 auto; }
+  @media (max-width: 574px) {
+    .container {
+      padding: 0 2vw; } }
+  @media (min-width: 576px) {
+    .container {
+      max-width: 520px; } }
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px; } }
+  @media (min-width: 992px) {
+    .container {
+      max-width: 920px; } }
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1120px; } }
+
+nav {
+  background-color: #e4e2e2;
+  padding: 1.5rem; }
+  nav a {
+    color: rgba(0, 0, 0, 0.322); }
+
+.success {
+  text-align: center;
+  font-size: 1.4rem;
+  padding: 1rem;
+  background-color: rgba(13, 172, 21, 0.685);
+  color: #fff; }
+
+.tarefas {
+  margin-top: 4rem;
+  display: grid;
+  gap: 2rem; }
+  .tarefas ul {
+    text-align: center;
+    list-style-type: none;
+    border: 1px solid #e4e2e2;
+    border-radius: 5px; }
+    .tarefas ul a {
+      display: block;
+      padding: .5rem;
+      color: #000;
+      font-size: 1.2rem; }
+      .tarefas ul a.first {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px; }
+      .tarefas ul a.last {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px; }
+      .tarefas ul a.active, .tarefas ul a:hover {
+        background-color: rgba(13, 172, 21, 0.685);
+        color: #fff; }
+  .tarefas .todas_tarefas {
+    padding: 2rem;
+    border: 1px solid #e4e2e2;
+    border-radius: 5px; }
+    .tarefas .todas_tarefas h2 {
+      padding-bottom: .5rem;
+      color: rgba(13, 172, 21, 0.685);
+      font-size: 1.6rem;
+      letter-spacing: .5px;
+      border-bottom: 1px solid #e4e2e2; }
+    .tarefas .todas_tarefas .tarefas_itens {
+      display: grid;
+      grid-template-columns: 6fr 1fr;
+      margin-top: 1rem;
+      letter-spacing: .5px; }
+      .tarefas .todas_tarefas .tarefas_itens div {
+        -ms-flex-item-align: center;
+            align-self: center; }
+      .tarefas .todas_tarefas .tarefas_itens i {
+        cursor: pointer;
+        margin-left: .5rem; }
+        .tarefas .todas_tarefas .tarefas_itens i:first-child {
+          color: red; }
+        .tarefas .todas_tarefas .tarefas_itens i:last-child {
+          color: blue; }
+    .tarefas .todas_tarefas .update_form {
+      position: relative;
+      width: 80%; }
+      .tarefas .todas_tarefas .update_form input {
+        width: 100%;
+        padding: .5rem; }
+      .tarefas .todas_tarefas .update_form button {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        padding: 0 1.5rem;
+        background-color: rgba(13, 172, 21, 0.685);
+        color: #fff;
+        border: 1px solid rgba(13, 172, 21, 0.685); }
+    .tarefas .todas_tarefas .formulario {
+      margin-top: 2rem;
+      position: relative;
+      width: 80%; }
+      .tarefas .todas_tarefas .formulario input {
+        padding: .5rem;
+        width: 100%; }
+      .tarefas .todas_tarefas .formulario button {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        padding: 0 1.5rem;
+        background-color: rgba(13, 172, 21, 0.685);
+        color: #fff;
+        border: 1px solid rgba(13, 172, 21, 0.685); }
+  @media (min-width: 768px) {
+    .tarefas {
+      grid-template-columns: 1fr 4fr; } }
+
+/*# sourceMappingURL=estilo.css.map */

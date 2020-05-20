@@ -1,0 +1,171 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none; 
+}
+
+$color-primary: rgba(13, 172, 21, 0.685);
+
+.container {
+  margin: 0 auto;
+  
+  @media (max-width: 574px) {
+    padding: 0 2vw;
+  }
+
+  @media (min-width: 576px) {
+      max-width: 520px;
+  }
+  @media (min-width: 768px) {
+      max-width: 720px;
+  }
+  @media (min-width: 992px) {
+      max-width: 920px;
+  }
+  @media (min-width: 1200px) {
+      max-width: 1120px;
+  }
+}
+
+nav {
+  background-color:rgb(228, 226, 226);
+  padding: 1.5rem;
+
+  a {
+    color: rgba(0, 0, 0, 0.322);       
+  }
+}
+
+.success {
+  text-align: center;
+  font-size: 1.4rem;
+  padding: 1rem;
+  background-color: $color-primary;
+  color: #fff;
+}
+
+.tarefas {
+  margin-top: 4rem;
+  display: grid;
+  gap: 2rem;
+
+  ul {
+    text-align: center;
+    list-style-type: none;
+    border: 1px solid rgb(228, 226, 226);
+    border-radius: 5px;
+
+    a {      
+      display: block;
+      padding: .5rem;
+      color: #000;    
+      font-size: 1.2rem;   
+      
+      &.first {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+      }
+
+      &.last {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
+      
+      &.active, &:hover {
+        background-color: $color-primary;
+        color: #fff;
+      }
+    }
+  }
+
+  .todas_tarefas {
+    padding: 2rem;
+    border: 1px solid rgb(228, 226, 226);
+    border-radius: 5px;
+
+    h2 {
+      padding-bottom: .5rem;
+      color: $color-primary;
+      font-size: 1.6rem;
+      letter-spacing: .5px;
+      border-bottom: 1px solid rgb(228, 226, 226);
+    }
+
+    .tarefas_itens {
+      display: grid;
+      grid-template-columns: 6fr 1fr;
+      margin-top: 1rem;
+      letter-spacing: .5px;
+
+      div {
+        align-self: center;
+      }
+
+      i {
+        cursor: pointer;
+        margin-left: .5rem;
+
+        &:first-child {
+          color: red;
+        }
+
+        &:last-child {
+          color: blue;
+        }
+      }      
+    }
+
+    .update_form { 
+      position: relative;
+      width: 80%;
+
+      input{
+        width: 100%;
+        padding: .5rem;
+      }
+
+      button {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        padding: 0 1.5rem;
+        background-color: $color-primary;
+        color: #fff;
+        border: 1px solid $color-primary;
+      }
+    }
+
+    .formulario {
+      margin-top: 2rem;
+      position: relative;
+      width: 80%;
+
+      input{
+        padding: .5rem;
+        width: 100%;
+      }
+
+      button {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        padding: 0 1.5rem;
+        background-color: $color-primary;
+        color: #fff;
+        border: 1px solid $color-primary;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 4fr;
+  }
+}
