@@ -3,8 +3,6 @@
 
   require_once 'tarefa_controller.php';
 
-  date_default_timezone_set('America/Sao_Paulo');
-
 ?>
 
 <html>

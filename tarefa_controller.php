@@ -4,6 +4,9 @@ require_once 'tarefa.model.php';
 require_once 'tarefa.service.php';
 require_once 'conexao.php';
 
+date_default_timezone_set('America/Sao_Paulo');
+
+
 $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
 
 if($acao == 'create' ) {
@@ -26,6 +29,12 @@ if($acao == 'create' ) {
 
   $tarefaService = new TarefaService($conexao, $tarefa);
   $tarefas = $tarefaService->read();
+
+  $data_target = $tarefas[0]->data_target;
+
+  echo $data_target . '-' . strtotime($data_target);
+
+  echo '<br>' . date('Y-m-d H:i:s') . '-' . strtotime(date('Y-m-d H:i:s'));
 
 } else if($acao == 'update') {
 
