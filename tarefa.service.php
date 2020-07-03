@@ -4,6 +4,7 @@ class TarefaService {
 
   private $conexao;
   private $tarefa;
+  private $data_target;
 
   function __construct(Conexao $conexao, Tarefa $tarefa)
   {
@@ -13,15 +14,16 @@ class TarefaService {
 
   //create
   public function create() { 
-		$query = 'insert into tb_tarefas(tarefa)values(:tarefa)';
+		$query = 'insert into tb_tarefas(tarefa, data_target)values(:tarefa, :data_target)';
 		$stmt = $this->conexao->prepare($query);
 		$stmt->bindValue(':tarefa', $this->tarefa->__get('tarefa'));
+		$stmt->bindValue(':data_target', $this->tarefa->__get('data_target'));
 		$stmt->execute();
   }
   
   //read
 	public function read() { 
-		$query = 'select id, tarefa from tb_tarefas';
+		$query = 'select * from tb_tarefas';
 		$stmt = $this->conexao->prepare($query);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -32,6 +34,15 @@ class TarefaService {
 		$query = "update tb_tarefas set tarefa = ? where id = ?";
 		$stmt = $this->conexao->prepare($query);
 		$stmt->bindValue(1, $this->tarefa->__get('tarefa'));
+		$stmt->bindValue(2, $this->tarefa->__get('id'));
+		return $stmt->execute(); 
+	}
+
+  //update
+	public function updateStatus() { 
+		$query = "update tb_tarefas set status = ? where id = ?";
+		$stmt = $this->conexao->prepare($query);
+		$stmt->bindValue(1, true);
 		$stmt->bindValue(2, $this->tarefa->__get('id'));
 		return $stmt->execute(); 
 	}

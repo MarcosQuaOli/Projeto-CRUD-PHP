@@ -33,7 +33,11 @@
       <h2>Nova Tarefa</h2>
 
         <form class="formulario" action="tarefa_controller.php?acao=create" method="post">
-          <input type="text" name="tarefa" placeholder="Digite a tarefa">
+          <label for="tarefa">Tarefa: </label>
+          <input id="tarefa" type="text" name="tarefa" required>
+
+          <label for="data_target">Qual prazo para cumprir a tarefa</label>
+          <input id="data_target" type="datetime-local" name="data_target" min="<?= date('Y-m-d H:i'); ?>" required>
           <button type="submit">Enviar</button>
         </form>
     

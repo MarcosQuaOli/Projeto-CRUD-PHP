@@ -7,9 +7,10 @@ require_once 'conexao.php';
 $acao = isset($_GET['acao']) ? $_GET['acao'] : $acao;
 
 if($acao == 'create' ) {
-
+  
   $tarefa = new Tarefa();
   $tarefa->__set('tarefa', $_POST['tarefa']);
+  $tarefa->__set('data_target', $_POST['data_target']);
 
   $conexao = new Conexao();
 
@@ -48,6 +49,18 @@ if($acao == 'create' ) {
 
   $tarefaService = new TarefaService($conexao, $tarefa);
   $tarefaService->delete();
+
+  header('location: index.php');	
+
+} else if($acao == 'done') {
+  
+  $tarefa = new Tarefa();
+  $conexao = new Conexao();
+
+  $tarefa->__set('id', $_POST['id']);
+
+  $tarefaService = new TarefaService($conexao, $tarefa);
+  $tarefaService->updateStatus();
 
   header('location: index.php');	
 

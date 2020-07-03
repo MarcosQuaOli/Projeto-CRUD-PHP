@@ -3,6 +3,8 @@
 
   require_once 'tarefa_controller.php';
 
+  date_default_timezone_set('America/Sao_Paulo');
+
 ?>
 
 <html>
@@ -36,11 +38,25 @@
       <?php foreach($tarefas as $tarefa) { ?>
 
         <div class="tarefas_itens">
-          <p id="tarefa_<?= $tarefa->id ?>"><?= $tarefa->tarefa; ?></p>
+          <form class="check" action="tarefa_controller.php?acao=done" method="POST">
+            <input type="hidden" name="id" value="<?= $tarefa->id ?>">
+            <input type="checkbox" name="done" onChange="this.form.submit()" <?php if ($tarefa->status) print 'disabled' ?>>
+          </form>
+
+          <p id="tarefa_<?= $tarefa->id ?>" class="<?php if ($tarefa->status) print 'tarefa_feita' ?>">
+            <?php print $tarefa->tarefa;  if (!$tarefa->status) print '(pendente)'; ?>
+          </p>
+
+          <p class="data <?php if ($tarefa->status) print 'tarefa_feita' ?>"><?= $tarefa->data_target; ?></p>
 
           <div>
             <i class="fas fa-trash-alt fa-lg" onclick="tarefa_delete(<?= $tarefa->id ?>)"></i>
+
+<?php if(!$tarefa->status) { ?>
+
             <i class="fas fa-edit fa-lg" onclick="tarefa_update(<?= $tarefa->id ?>, '<?= $tarefa->tarefa ?>')"></i>
+
+<?php } ?>
           </div>
         </div>   
       
